@@ -1,0 +1,186 @@
+Q2.1 variables used by the CV-selected tree:
+[1] "Lead.Time"        "Special.Requests" "Market.Segment"   "Adults"          
+[5] "ADR"             
+Q2.1 number of leaves: 10 
+Q2.1 selected complexity parameter: 0.01 
+
+Averaged cross-validation results:
+          cp leaves mean.cv.error
+1 0.15023474      1     1.0000000
+2 0.07042254      2     0.8915915
+3 0.02816901      3     0.8154038
+4 0.01643192      5     0.8085822
+5 0.01408451      9     0.7989202
+6 0.01000000     10     0.7953474
+null device 
+          1 
+
+Q2.2 terminal-node rules and cancellation probabilities:
+
+Node 4 - P(Cancelled = Y) = 0.04 - predicted class = N 
+root AND Lead.Time< 145.5 AND Special.Requests>=1.5 
+
+Node 10 - P(Cancelled = Y) = 0.2290076 - predicted class = N 
+root AND Lead.Time< 145.5 AND Special.Requests< 1.5 AND Market.Segment=Direct,Groups,Offline.TA.TO 
+
+Node 22 - P(Cancelled = Y) = 0.3053435 - predicted class = N 
+root AND Lead.Time< 145.5 AND Special.Requests< 1.5 AND Market.Segment=Online.TA AND Lead.Time< 78.5 
+
+Node 46 - P(Cancelled = Y) = 0.3703704 - predicted class = N 
+root AND Lead.Time< 145.5 AND Special.Requests< 1.5 AND Market.Segment=Online.TA AND Lead.Time>=78.5 AND Special.Requests>=0.5 
+
+Node 47 - P(Cancelled = Y) = 0.6944444 - predicted class = Y 
+root AND Lead.Time< 145.5 AND Special.Requests< 1.5 AND Market.Segment=Online.TA AND Lead.Time>=78.5 AND Special.Requests< 0.5 
+
+Node 24 - P(Cancelled = Y) = 0.26 - predicted class = N 
+root AND Lead.Time>=145.5 AND Market.Segment=Direct,Offline.TA.TO,Online.TA AND Lead.Time>=192.5 AND Adults>=1.5 
+
+Node 25 - P(Cancelled = Y) = 0.6153846 - predicted class = Y 
+root AND Lead.Time>=145.5 AND Market.Segment=Direct,Offline.TA.TO,Online.TA AND Lead.Time>=192.5 AND Adults< 1.5 
+
+Node 26 - P(Cancelled = Y) = 0.25 - predicted class = N 
+root AND Lead.Time>=145.5 AND Market.Segment=Direct,Offline.TA.TO,Online.TA AND Lead.Time< 192.5 AND ADR>=142.3 
+
+Node 27 - P(Cancelled = Y) = 0.62 - predicted class = Y 
+root AND Lead.Time>=145.5 AND Market.Segment=Direct,Offline.TA.TO,Online.TA AND Lead.Time< 192.5 AND ADR< 142.3 
+
+Node 7 - P(Cancelled = Y) = 0.9272727 - predicted class = Y 
+root AND Lead.Time>=145.5 AND Market.Segment=Groups 
+
+Q2.3 lowest-probability node: 4 
+Q2.3 cancellation probability: 0.04 
+Q2.3 rule: root AND Lead.Time< 145.5 AND Special.Requests>=1.5 
+
+Q2.4 final KIC-selected logistic model:
+
+Call:
+glm(formula = Cancelled ~ Lead.Time + Weekend.Nights + Adults + 
+    Market.Segment + Special.Requests, family = binomial, data = hotel.train)
+
+Coefficients:
+                             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                 -1.032531   0.510753  -2.022  0.04322 *  
+Lead.Time                    0.005709   0.001049   5.444 5.22e-08 ***
+Weekend.Nights               0.283987   0.108820   2.610  0.00906 ** 
+Adults                      -0.392788   0.178023  -2.206  0.02736 *  
+Market.SegmentGroups         1.245032   0.506347   2.459  0.01394 *  
+Market.SegmentOffline.TA.TO -0.277765   0.497844  -0.558  0.57689    
+Market.SegmentOnline.TA      1.047729   0.446397   2.347  0.01892 *  
+Special.Requests            -0.867117   0.186352  -4.653 3.27e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 739.13  on 554  degrees of freedom
+Residual deviance: 622.83  on 547  degrees of freedom
+AIC: 638.83
+
+Number of Fisher Scoring iterations: 4
+
+
+Q2.4 final model terms:
+[1] "Lead.Time"        "Weekend.Nights"   "Adults"           "Market.Segment"  
+[5] "Special.Requests"
+
+Q2.4 final model coefficients:
+                (Intercept)                   Lead.Time 
+               -1.032530887                 0.005708854 
+             Weekend.Nights                      Adults 
+                0.283987413                -0.392788493 
+       Market.SegmentGroups Market.SegmentOffline.TA.TO 
+                1.245031764                -0.277765293 
+    Market.SegmentOnline.TA            Special.Requests 
+                1.047728894                -0.867117496 
+
+Q2.4 non-intercept coefficients ordered by p-value:
+                                Estimate  Std. Error    z value     Pr(>|z|)
+Lead.Time                    0.005708854 0.001048719  5.4436447 5.220128e-08
+Special.Requests            -0.867117496 0.186352014 -4.6531158 3.269566e-06
+Weekend.Nights               0.283987413 0.108820133  2.6096955 9.062285e-03
+Market.SegmentGroups         1.245031764 0.506346946  2.4588511 1.393824e-02
+Market.SegmentOnline.TA      1.047728894 0.446397205  2.3470776 1.892131e-02
+Adults                      -0.392788493 0.178022838 -2.2063938 2.735644e-02
+Market.SegmentOffline.TA.TO -0.277765293 0.497844276 -0.5579361 5.768880e-01
+
+Q2.5 fitted log-odds coefficients:
+                (Intercept)                   Lead.Time 
+          -1.03253088723811            0.00570885375035 
+             Weekend.Nights                      Adults 
+           0.28398741302915           -0.39278849345296 
+       Market.SegmentGroups Market.SegmentOffline.TA.TO 
+           1.24503176402638           -0.27776529316397 
+    Market.SegmentOnline.TA            Special.Requests 
+           1.04772889430059           -0.86711749574961 
+
+Q2.6 Special.Requests log-odds coefficient: -0.8671175 
+Q2.6 odds ratio per additional request: 0.4201609 
+Q2.6 approximate 95% confidence interval for the odds ratio:
+                     2.5 %    97.5 %
+Special.Requests 0.2916034 0.6053949
+
+Q2.7 prediction statistics for the CV-selected tree:
+---------------------------------------------------------------------------
+Performance statistics:
+
+Confusion matrix:
+
+    target
+pred   N   Y
+   N 136  45
+   Y  21  48
+
+Classification accuracy = 0.736 
+Sensitivity             = 0.516129 
+Specificity             = 0.866242 
+Area-under-curve        = 0.7379289 
+Logarithmic loss        = 135.7103 
+
+---------------------------------------------------------------------------
+
+Q2.7 prediction statistics for the KIC logistic model:
+---------------------------------------------------------------------------
+Performance statistics:
+
+Confusion matrix:
+
+    target
+pred   N   Y
+   N 138  39
+   Y  19  54
+
+Classification accuracy = 0.768 
+Sensitivity             = 0.5806452 
+Specificity             = 0.8789809 
+Area-under-curve        = 0.7868639 
+Logarithmic loss        = 130.8841 
+
+---------------------------------------------------------------------------
+null device 
+          1 
+
+Q2.8 tree probability and odds for test booking 10:
+probability.10        odds.10 
+     0.6153846      1.6000000 
+Q2.8 logistic probability and odds for test booking 10:
+probability.10        odds.10 
+     0.7360906      2.7891794 
+
+Q2.9 observed predicted log-odds (bookings 65 and 66):
+       65        66 
+-3.211267  2.469743 
+Q2.9 observed difference, booking 65 minus booking 66: -5.68101 
+Q2.9 BCa 95% confidence interval:
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 5000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = bootstrap.log.odds, conf = 0.95, type = "bca")
+
+Intervals : 
+Level       BCa          
+95%   (-7.187, -4.028 )  
+Calculations and Intervals on Original Scale
+Q2.9 point estimate and BCa interval on the odds-ratio scale:
+ odds.ratio       lower       upper 
+0.003410113 0.000756133 0.017808627 

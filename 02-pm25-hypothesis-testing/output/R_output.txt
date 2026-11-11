@@ -1,0 +1,47 @@
+PM2.5 hypothesis testing: reproducible output
+
+Question 1
+March-May: n = 84 mean = 10.3629046071 variance = 35.4859599876 
+June-July: n = 61 mean = 8.09696298361 variance = 26.3624538099 
+t critical = 2.00029782201 SE June-July = 0.657397424648 CI = 6.78197234689 9.41195362033 
+difference = -2.26594162354 SE difference = 0.92445837037 CI = -4.07788002946 -0.454003217611 
+z = -2.45110185181 p-value = 0.0142419647826 
+lm coefficients:
+   (Intercept)              x 
+10.36290460714 -2.26594162354 
+
+Question 2.5
+seed = 2086, simulations = 10000 , n = 10 , v = 1 
+MLE estimated bias = -0.0546496375051 
+bias-corrected estimated bias = -0.00464963750506 
+Monte Carlo SE for either estimated bias = 0.0032262798031 
+
+Question 3
+p_A = 0.88 CI = 0.789925257702 0.970074742298 
+difference = 0.16 SE = 0.0783836717691 CI = 0.00636800333264 0.313631996667 
+pooled p = 0.8 z = 2 p-value = 0.0455002638964 
+M0: NLL = 50.0402423538 AIC = 51.0402423538 BIC = 52.3428274468 
+M1: NLL = 47.993915436 AIC = 49.993915436 BIC = 52.599085622 
+
+R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26200)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=Chinese (Simplified)_China.utf8 
+[2] LC_CTYPE=Chinese (Simplified)_China.utf8   
+[3] LC_MONETARY=Chinese (Simplified)_China.utf8
+[4] LC_NUMERIC=C                               
+[5] LC_TIME=Chinese (Simplified)_China.utf8    
+
+time zone: Asia/Singapore
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+[1] compiler_4.6.1

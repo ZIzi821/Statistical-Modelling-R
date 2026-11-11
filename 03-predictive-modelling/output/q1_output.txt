@@ -1,0 +1,117 @@
+
+Call:
+lm(formula = sale_price ~ ., data = ames)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-60.927 -11.809  -0.665  11.360  47.733 
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.643e+03  2.914e+02  -5.636 2.11e-07 ***
+lot_area     -1.618e-06  8.348e-04  -0.002 0.998458    
+overall_qual  1.174e+01  2.846e+00   4.125 8.46e-05 ***
+year_built    4.356e-01  1.262e-01   3.453 0.000858 ***
+year_remod    3.998e-01  1.364e-01   2.932 0.004307 ** 
+bsmt_fin_sf   2.140e-02  5.813e-03   3.682 0.000401 ***
+gr_liv_area   4.757e-02  1.345e-02   3.537 0.000652 ***
+full_bath    -1.277e+00  7.709e+00  -0.166 0.868786    
+half_bath    -6.097e+00  5.588e+00  -1.091 0.278241    
+bedrooms     -2.285e+00  4.901e+00  -0.466 0.642260    
+rooms         1.644e+00  3.766e+00   0.437 0.663501    
+fireplaces    6.015e+00  4.114e+00   1.462 0.147348    
+garage_cars   7.638e+00  4.276e+00   1.786 0.077565 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 20.47 on 87 degrees of freedom
+Multiple R-squared:  0.8871,	Adjusted R-squared:  0.8715 
+F-statistic: 56.97 on 12 and 87 DF,  p-value: < 2.2e-16
+
+
+Predictors ordered by their ordinary two-sided p-values:
+                  Estimate   Std. Error      t value     Pr(>|t|)
+overall_qual  1.173985e+01 2.8459908515  4.125050070 8.455188e-05
+bsmt_fin_sf   2.140252e-02 0.0058125554  3.682118991 4.007742e-04
+gr_liv_area   4.757454e-02 0.0134509432  3.536892124 6.518047e-04
+year_built    4.356259e-01 0.1261564701  3.453060379 8.582040e-04
+year_remod    3.998405e-01 0.1363865970  2.931670401 4.307068e-03
+garage_cars   7.637803e+00 4.2762188121  1.786111276 7.756522e-02
+fireplaces    6.015025e+00 4.1142887911  1.461984207 1.473484e-01
+half_bath    -6.096828e+00 5.5877776209 -1.091100613 2.782412e-01
+bedrooms     -2.284742e+00 4.9011128144 -0.466168012 6.422603e-01
+rooms         1.644054e+00 3.7657952573  0.436575525 6.635008e-01
+full_bath    -1.277330e+00 7.7092002014 -0.165688987 8.687861e-01
+lot_area     -1.617790e-06 0.0008348227 -0.001937884 9.984582e-01
+
+Bonferroni per-test threshold: 0.004166667 
+                predictor  raw.p.value bonferroni.p.value
+overall_qual overall_qual 8.455188e-05        0.001014623
+bsmt_fin_sf   bsmt_fin_sf 4.007742e-04        0.004809290
+gr_liv_area   gr_liv_area 6.518047e-04        0.007821657
+year_built     year_built 8.582040e-04        0.010298448
+year_remod     year_remod 4.307068e-03        0.051684819
+garage_cars   garage_cars 7.756522e-02        0.930782621
+fireplaces     fireplaces 1.473484e-01        1.000000000
+half_bath       half_bath 2.782412e-01        1.000000000
+bedrooms         bedrooms 6.422603e-01        1.000000000
+rooms               rooms 6.635008e-01        1.000000000
+full_bath       full_bath 8.687861e-01        1.000000000
+lot_area         lot_area 9.984582e-01        1.000000000
+
+Coefficient estimates for Q1.3:
+                Estimate Std. Error  t value     Pr(>|t|)
+overall_qual 11.73985476 2.84599085 4.125050 8.455188e-05
+gr_liv_area   0.04757454 0.01345094 3.536892 6.518047e-04
+
+95% confidence intervals for the two coefficients:
+                  2.5 %      97.5 %
+overall_qual 6.08313978 17.39656975
+gr_liv_area  0.02083933  0.07430974
+
+Final BIC-selected model:
+
+Call:
+lm(formula = sale_price ~ overall_qual + year_built + year_remod + 
+    bsmt_fin_sf + gr_liv_area, data = ames)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-60.556 -11.289  -1.222  12.505  50.359 
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.611e+03  2.359e+02  -6.828 8.39e-10 ***
+overall_qual  1.524e+01  2.442e+00   6.243 1.23e-08 ***
+year_built    4.086e-01  1.037e-01   3.941 0.000156 ***
+year_remod    4.064e-01  1.242e-01   3.272 0.001495 ** 
+bsmt_fin_sf   2.487e-02  5.024e-03   4.950 3.26e-06 ***
+gr_liv_area   4.935e-02  5.755e-03   8.575 1.96e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 20.48 on 94 degrees of freedom
+Multiple R-squared:  0.8779,	Adjusted R-squared:  0.8715 
+F-statistic: 135.2 on 5 and 94 DF,  p-value: < 2.2e-16
+
+
+Final BIC-selected coefficients:
+  (Intercept)  overall_qual    year_built    year_remod   bsmt_fin_sf 
+-1.610950e+03  1.524389e+01  4.085963e-01  4.063734e-01  2.486787e-02 
+  gr_liv_area 
+ 4.934681e-02 
+
+Final BIC-selected formula:
+sale_price ~ overall_qual + year_built + year_remod + bsmt_fin_sf + 
+    gr_liv_area
+
+Q1.5(a) 95% confidence interval for mean sale price ($000):
+       fit      lwr      upr
+1 224.0909 217.8102 230.3716
+
+Q1.5(b) 95% prediction interval for this house ($000):
+       fit      lwr      upr
+1 224.0909 182.9514 265.2303
+
+Q1.5(c) Asking price ($000): 275 
+Is the asking price inside the 95% prediction interval? FALSE

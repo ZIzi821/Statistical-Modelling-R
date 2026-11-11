@@ -1,0 +1,75 @@
+Q3.1 RMSE for k = 1, ..., 25:
+  k     RMSE
+  1 4.266014
+  2 3.348711
+  3 2.776636
+  4 2.404284
+  5 2.160051
+  6 2.028313
+  7 1.957016
+  8 1.965416
+  9 2.006849
+ 10 2.085553
+ 11 2.195412
+ 12 2.379707
+ 13 2.574516
+ 14 2.764496
+ 15 2.987815
+ 16 3.225538
+ 17 3.446317
+ 18 3.711256
+ 19 3.954426
+ 20 4.193432
+ 21 4.442527
+ 22 4.678051
+ 23 4.908019
+ 24 5.154040
+ 25 5.374347
+Q3.1 value of k with the smallest actual RMSE: 7 
+Q3.1 minimum actual RMSE: 1.957016 
+null device 
+          1 
+null device 
+          1 
+
+Q3.3 comparison of the four requested smoothers:
+  k     RMSE maximum.estimated.intensity
+  2 3.348711                    98.08942
+  6 2.028313                    93.46164
+ 12 2.379707                    85.85910
+ 25 5.374347                    66.20073
+True maximum intensity: 95.84157 
+
+Q3.4 cross-validation result:
+
+Call:
+train.kknn(formula = intensity ~ MZ, data = ms.measured, kmax = 25,     kernel = "optimal")
+
+Type of response variable: continuous
+minimal mean absolute error: 3.932432
+Minimal mean squared error: 23.35848
+Best kernel: optimal
+Best k: 6
+Q3.4 CV-selected k: 6 
+Q3.4 actual-RMSE-minimising k: 7 
+Q3.4 actual RMSE at the CV-selected k: 2.028313 
+
+Q3.5 estimated measurement-noise standard deviation: 3.660553 
+
+Q3.6 peak-height comparison for the requested k values:
+  k estimate.at.true.peak maximum.estimate
+  2              97.33672         98.08942
+  6              93.46164         93.46164
+ 12              85.85910         85.85910
+ 25              66.20073         66.20073
+True peak MZ: 7964.932 
+True peak intensity: 95.84157 
+
+Q3.7 MZ at the maximum CV-selected estimated intensity: 7964.932 
+Q3.7 maximum estimated intensity: 93.46164 
+
+Q3.8 95% percentile bootstrap confidence intervals:
+  k estimate    lower    upper
+  6 93.46164 79.99504 97.20488
+  3 97.03443 86.29126 98.00086
+ 20 73.48221 52.93787 86.55786
