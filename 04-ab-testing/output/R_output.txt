@@ -1,0 +1,24 @@
+A/B testing workflow - reproducible output
+
+1. Sample size per group for 10% -> 11%: 14751 
+
+3. Users per group:
+
+  control treatment 
+    14587     14915 
+   SRM chi-square p-value = 0.0562 (no mismatch)
+
+4. Conversion
+   control = 0.0986, treatment = 0.1094
+   absolute lift = 0.0108, 95% CI [0.0038, 0.0177], relative lift = 10.9%
+   two-proportion z-test p-value = 0.0025
+
+5. Minutes per user (treatment - control; true effect = 0.5)
+   raw:   diff = 0.481, 95% CI [0.259, 0.704], p = 0.0000
+   CUPED: diff = 0.587, 95% CI [0.458, 0.717], p = 0.0000
+   CUPED theta = 0.798; CI width reduced by 41.8%
+
+6. A/A test false-positive rate over 2000 simulations
+   check once at day 14:      4.3%
+   check every day, stop early: 20.1%
+
