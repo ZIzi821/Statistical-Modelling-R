@@ -1,10 +1,14 @@
 # Statistical-Modelling-R
 
-用 R 完成的统计建模与预测分析练习合集：概率建模、参数估计与假设检验、回归、分类、非参数平滑。每个子目录可独立运行，输出与图表已一并提交。
+用 R 做的四个统计建模与实验分析：概率建模、假设检验、回归与分类、A/B 实验流程。每个子目录可独立运行，输出与图表已一并提交。
 
-A collection of statistical modelling exercises in R — probability models, estimation and hypothesis testing, regression, classification and k-NN smoothing. Every folder runs on its own and its outputs are committed.
+Four statistical modelling and experiment analyses in R — probability models, hypothesis testing, regression and classification, and an A/B test workflow. Every folder runs on its own and its outputs are committed.
 
 作者：Yanyu Zhu
+
+| A/B 实验：每天看一次结果并提前停止，A/A 假阳性从 4.3% 升到 20.1% | 酒店预订取消预测：决策树与 Logistic 回归的 ROC 曲线 |
+|---|---|
+| ![A/A 测试中提前偷看导致的假阳性率](04-ab-testing/output/peeking_false_positives.png) | ![决策树与 Logistic 回归的 ROC 曲线](03-predictive-modelling/output/Q2_ROC_curves.png) |
 
 ## 目录
 
@@ -40,4 +44,3 @@ source("ab_test_analysis.R")
 - `03-predictive-modelling/wrappers.R`、`my.prediction.stats.R` 为分类评估辅助函数（混淆矩阵、准确率、灵敏度、特异度等）。
 - 数据均为小型教学数据集（Ames 房价子集、酒店预订子集、模拟质谱信号、EV 到达计数与 PM2.5 观测）。
 - `04-ab-testing` 的实验数据用固定随机种子模拟，真实效应已知（转化 10%→11%，时长 +0.5 分钟），用来验证方法本身是否把效应找回来；不是真实业务数据。
-- 新的独立建模项目会单独开仓库；本仓库只收录练习规模的建模分析。
